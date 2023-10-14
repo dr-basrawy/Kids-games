@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logout</title>
+    <!-- <script src="cookies.js"></script> -->
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Logging out...</h1>
+    <script>
+        deleteCookie("username");
+        setTimeout(function () {
+            window.location.href = "login.html";
+        }, 5000);
+
+        function deleteCookie(name) {
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+    </script>
+</body>
+
+</html>

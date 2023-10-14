@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustraction</title>
+    <link rel="stylesheet" href="styles/sub.css">
+    <link rel="stylesheet" href="styles/math.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="logout.html">Logout</a></li>
+            <li><a href="contactus.html">Contact us</a></li>
+            <li id="username-display"></li>
+        </ul>
+    </nav>
+    <div class="sidenav">
+        <button onclick="window.location.href='add.html'">Addition</button>
+        <button onclick="window.location.href='sub.html'">Subtraction</button>
+        <button onclick="window.location.href='multi.html'">Multiplication</button>
+        <button onclick="window.location.href='divi.html'">Division</button>
+    </div>
+    <div id="mainDiv">
+        <h1 id="titleHeading">Substraction to 20</h1>
+        <div id="imgsDiv">
+            <div id="bigNum"></div>
+            <div id="smallNum"></div>
+        </div>
+        <div id="equation">
+            <div id="firstNum" class="equationdivs"></div>
+            <div id="minusOperator" class="equationdivs">-</div>
+            <div id="secondNum" class="equationdivs"></div>
+            <div id="equal" class="equationdivs">=</div>
+            <div id="ans" class="equationdivs">?</div>
+        </div>
+        <div id="choices">
+            <div id="choice1" class="choicesDivs"></div>
+            <div id="choice2" class="choicesDivs"></div>
+            <div id="choice3" class="choicesDivs"></div>
+            <div id="choice4" class="choicesDivs"></div>
+        </div>
+        <div id="newGame">
+            <button id="newGamebtn">New game</button>
+        </div>
+        <div id="tryYes">
+            <img src="" alt="" id="ansImg">
+        </div>
+    </div>
+
+    <script src="scripts/sub.js"></script>
+    <script>
+        var username = getCookie("username");
+        if (username) {
+            document.getElementById("username-display").textContent = "Welcome " + username;
+        } else {
+            document.getElementById("username-display").textContent = "Username not found.";
+        }
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) === " ") {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+            return null;
+        }
+    </script>
+</body>
+
+</html>

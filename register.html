@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+  <!-- <p>method="post" enctype="multipart/form-data" action="update-users.php"</p> -->
+  <div id="register-page">
+    <form id="registration-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br>
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age"><br>
+      <label for="username">Username:</label>
+      <input type="text" id="reg-username" name="username"><br>
+      <label for="password">Password:</label>
+      <input type="password" id="reg-password" name="password"><br>
+      <input type="button" value="Register" onclick="register()">
+    </form>
+    <p>Already have an account? <a href="login.html" id="login-link">Login here</a></p>
+  </div>
+  <script src="scripts/register.js"></script>
+</body>
+
+</html>

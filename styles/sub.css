@@ -1,0 +1,70 @@
+#mainDiv{
+    width: 60%;
+    padding: 1rem;
+    text-align: center;
+}
+.equationdivs{
+    width: 12%;
+    font-weight: 700;
+    font-size: 300%;
+    margin-top: 1rem;
+    padding: 0.25rem;
+}
+#equation{
+    display: flex;
+    justify-content: center;
+}
+#ans{
+    border: 5px solid black;
+    border-radius: 10px;
+}
+.choicesDivs{
+    width: 12%;
+    font-weight: 700;
+    font-size: 300%;
+    text-align: center;
+    border: 5px solid rgb(228, 65, 65);
+    background-color: rgb(228, 65, 65);
+    border-radius: 10px;
+    color: antiquewhite;
+}
+#choices{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+#newGame{
+    text-align: center;
+    margin-top: 2rem;
+}
+#newGamebtn{
+    width: 20%;
+    padding: 1rem;
+    font-size: larger;
+    font-weight:600;
+    background-color: rgb(71, 139, 71);
+    border-color: rgb(52, 153, 52);
+    border-radius: 10%;
+    color: antiquewhite;
+}
+#tryYes{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+#ansImg{
+    border: 1px solid rgb(228, 65, 65);
+    border-radius: 5%;
+}
+.appleImgs{
+    width: 10%;
+}
+.subImgs{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+#bigNum, #smallNum{
+    text-align: center;
+}

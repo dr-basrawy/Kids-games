@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/math.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="logout.html">Logout</a></li>
+            <li><a href="contactus.html">Contact us</a></li>
+            <li id="username-display"></li>
+        </ul>
+    </nav>
+    <div class="sidenav">
+        <button onclick="window.location.href='shapeQ.html'">Shapes</button>
+        <button onclick="window.location.href='shape.html'">Shapes Game</button>
+    </div>
+    <script>
+        var username = getCookie("username");
+        if (username) {
+            document.getElementById("username-display").textContent = "Welcome " + username;
+        } else {
+            document.getElementById("username-display").textContent = "Username not found.";
+        }
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) === " ") {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+            return null;
+        }
+    </script>
+</body>
+
+</html>

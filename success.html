@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Success</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <!-- <script src="cookies.js"></script> -->
+    <style>
+        .split-screen {
+            margin-top: 80px;
+            display: flex;
+            height: 80vh;
+        }
+
+        .lessons-section {
+            flex: 1;
+            background-color: #87CEFA;
+            /* Pink color */
+            padding: 20px;
+            transition: background-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .games-section {
+            flex: 1;
+            background-color: #87CEFA;
+            padding: 20px;
+            transition: background-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lessons-section:hover,
+        .games-section:hover {
+            background-color: #FF69B4;
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="logout.html">Logout</a></li>
+            <li><a href="contactus.html">Contact us</a></li>
+            <li id="username-display"></li>
+        </ul>
+    </nav>
+
+    <div class="split-screen">
+        <a href="lessons.html" class="lessons-section">
+            <h2>Lessons</h2>
+            <img src="resources/lessons main.jpg" alt="lessons">
+        </a>
+        <a href="games.html" class="games-section">
+            <h2>Games</h2>
+            <img src="resources/games main.jpg" alt="games">
+        </a>
+    </div>
+
+    <script>
+        var username = getCookie("username");
+        if (username) {
+            document.getElementById("username-display").textContent = "Welcome " + username;
+        } else {
+            document.getElementById("username-display").textContent = "Username not found.";
+        }
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) === " ") {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+            return null;
+        }
+    </script>
+</body>
+
+</html>

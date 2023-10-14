@@ -1,0 +1,34 @@
+{
+    "users": [
+        {
+            "username": "samir",
+            "password": "123456",
+            "name": "Mohamed Samir",
+            "age": 25
+        },
+        {
+            "username": "samir2",
+            "password": "123456",
+            "name": "Mohamed Samir",
+            "age": 30
+        },
+        {
+            "username": "admin",
+            "password": "123456",
+            "name": "Moh",
+            "age": "12"
+        },
+        {
+            "username": "admin11",
+            "password": "123456",
+            "name": "Mohamed",
+            "age": "20"
+        },
+        {
+            "username": "samir99",
+            "password": "123456",
+            "name": "Mohamed",
+            "age": "29"
+        }
+    ]
+}

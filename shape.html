@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shape Game</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/math.css">
+    <style>
+        body, html {
+            height: 80%;
+        }
+        #game-container {
+            width: 90%;
+            height: 100%;
+            position: relative;
+        }
+
+        .shape {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            cursor: move;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+        }
+
+        .shape img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #shape1 {
+            top: 0;
+            left: 0;
+        }
+
+        #shape2 {
+            top: 0;
+            right: 200px;
+        }
+
+        #shape3 {
+            bottom: 0;
+            left: 0;
+        }
+
+        #shape4 {
+            bottom: 0;
+            right: 200px;
+        }
+
+        #target {
+            width: 300px;
+            height: 300px;
+            border: 8px solid gray;
+            position: absolute;
+            top: 50%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+        }
+
+        #success-message {
+            display: none;
+            font-weight: bold;
+            color: white;
+        }
+        p{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="logout.html">Logout</a></li>
+            <li><a href="contactus.html">Contact us</a></li>
+            <li id="username-display"></li>
+        </ul>
+    </nav>
+    <div class="sidenav">
+        <button onclick="window.location.href='shapeQ.html'">Shapes</button>
+        <button onclick="window.location.href='shape.html'">Shapes Game</button>
+    </div>
+    <h1>Shape Game</h1>
+    <p>Drag the correct shape image to the target area!</p>
+    <p>The correct shape is: <strong id="correct-shape"></strong></p>
+    <div id="game-container">
+        <div class="shape" id="shape1" draggable="true"><img src="resources/full-moon.png" alt="Circle" draggable="false"></div>
+        <div class="shape" id="shape2" draggable="true"><img src="resources/triangle.png" alt="Triangle" draggable="false"></div>
+        <div class="shape" id="shape3" draggable="true"><img src="resources/stop.png" alt="Square" draggable="false"></div>
+        <div class="shape" id="shape4" draggable="true"><img src="resources/star.png" alt="Star" draggable="false"></div>
+        <div id="target"></div>
+    </div>
+    <button id="new-game">Start New Game</button>
+    <h1 id="success-message">Congratulations! You did it!</h1>
+
+    <script>
+        const shapes = ['Circle', 'Triangle', 'Square', 'Star'];
+        const correctShape = shapes[Math.floor(Math.random() * shapes.length)];
+        document.getElementById('correct-shape').textContent = correctShape;
+
+        const target = document.getElementById('target');
+
+        const shape1 = document.getElementById('shape1');
+        const shape2 = document.getElementById('shape2');
+        const shape3 = document.getElementById('shape3');
+        const shape4 = document.getElementById('shape4');
+
+        shape1.addEventListener('dragstart', dragStart);
+        shape2.addEventListener('dragstart', dragStart);
+        shape3.addEventListener('dragstart', dragStart);
+        shape4.addEventListener('dragstart', dragStart);
+
+        target.addEventListener('dragover', dragOver);
+        target.addEventListener('drop', drop);
+
+        function dragStart(event) {
+            event.dataTransfer.setData('text/plain', event.target.firstChild.alt);
+            event.dataTransfer.setData('id', event.target.id);
+        }
+
+        function dragOver(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+    event.preventDefault();
+    const draggedShapeName = event.dataTransfer.getData('text/plain');
+    const draggedShapeId = event.dataTransfer.getData('id');
+    const draggedShape = document.getElementById(draggedShapeId);
+    if (draggedShapeName === correctShape) {
+        target.remove();
+        const img = document.createElement('img');
+        img.src = './resources/bravo.jpg';
+        img.alt = 'Bravo';
+        img.id = 'target';
+        img.style.position = 'absolute';
+        img.style.top = '50%';
+        img.style.left = '50%';
+        img.style.transform = 'translate(-50%, -50%)';
+        var newImg = document.getElementById('game-container').appendChild(img);
+        newImg.style.border ='0px';
+        newImg.style.height='450px';
+        newImg.style.width='400px';
+        document.getElementById('success-message').style.display = 'block';
+    } else {
+        alert('Try again!');
+    }
+}
+        const newGameButton = document.getElementById('new-game');
+        newGameButton.addEventListener('click', function () {
+            location.reload();
+        });
+
+
+
+        var username = getCookie("username");
+            if (username) {
+                document.getElementById("username-display").textContent = "Welcome " + username;
+            } else {
+                document.getElementById("username-display").textContent = "Username not found.";
+            }
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var cookies = document.cookie.split(";");
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i];
+                    while (cookie.charAt(0) === " ") {
+                        cookie = cookie.substring(1, cookie.length);
+                    }
+                    if (cookie.indexOf(nameEQ) === 0) {
+                        return cookie.substring(nameEQ.length, cookie.length);
+                    }
+                }
+                return null;
+            }
+    </script>
+</body>
+
+</html>

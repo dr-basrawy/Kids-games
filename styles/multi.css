@@ -1,0 +1,48 @@
+#mainDiv{
+    width: 60%;
+    padding: 1rem;
+    text-align: center;
+}
+.equationdivs{
+    width: 8%;
+    font-weight: 700;
+    font-size: 300%;
+    margin-top: 1rem;
+    padding: 0.25rem;
+    text-align: center;
+}
+#equation{
+    display: flex;
+    justify-content: center;
+}
+#ans{
+    background-color: antiquewhite;
+    border: 5px solid black;
+    border-radius: 10px;
+    color: black;
+}
+.btnsDivs{
+    text-align: center;
+    margin-top: 2rem;
+}
+.btns{
+    width: 20%;
+    padding: 1rem;
+    font-size: larger;
+    font-weight:600;
+    background-color: rgb(71, 139, 71);
+    border-color: rgb(52, 153, 52);
+    border-radius: 10%;
+    color: antiquewhite;
+}
+#tryYes{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+#ansImg{
+    border: 1px solid rgb(228, 65, 65);
+    border-radius: 50%;
+    width: 30%;
+}

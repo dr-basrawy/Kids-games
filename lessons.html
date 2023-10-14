@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Page</title>
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/lessons.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- <script src="cookies.js"></script> -->
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="logout.html">Logout</a></li>
+            <li><a href="contactus.html">Contact us</a></li>
+            <li id="username-display"></li>
+        </ul>
+    </nav>
+
+    <div id="mainDiv">
+        <div id="container">
+            <div class="outerDiv">
+                <div class="sectionCard">
+                    <img src="resources/english.jpeg" alt="english">
+                    <h3>English</h3>
+                </div>
+                <div class="sectionCard">
+                    <img src="resources/math.jpeg" alt="math">
+                    <h3>Math</h3>
+                </div>
+            </div>
+            <div class="outerDiv">
+                <div class="sectionCard">
+                    <img src="resources/shapes.jpeg" alt="shapes">
+                    <h3>Shapes</h3>
+                </div>
+                <div class="sectionCard">
+                    <img src="resources/games.png" alt="games" id="gamesImg">
+                    <h3>Games</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/lessons.js"></script>
+    <script>
+        var username = getCookie("username");
+        if (username) {
+            document.getElementById("username-display").textContent = "Welcome " + username;
+        } else {
+            document.getElementById("username-display").textContent = "Username not found.";
+        }
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) === " ") {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+            return null;
+        }
+    </script>
+</body>
+
+</html>
