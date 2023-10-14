@@ -45,7 +45,7 @@ function register() {
         data2.send("username=" + encodeURIComponent(username.value) + "&password=" + encodeURIComponent(password.value) + "&name=" + encodeURIComponent(name.value) + "&age=" + encodeURIComponent(age.value));
         
         alert("Registration successful now you can login :)");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
       }
     };
     data.open("GET", "users.json", true);
